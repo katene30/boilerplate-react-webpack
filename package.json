@@ -7,7 +7,7 @@
   "author": "EDA",
   "license": "ISC",
   "scripts": {
-    "knex":"knex",
+    "knex": "knex",
     "client": "webpack-dev-server --hot --inline",
     "dev": "node server & webpack --watch",
     "server": "node server",
@@ -47,6 +47,7 @@
     "jest": "^23.6.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
