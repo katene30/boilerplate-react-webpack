@@ -1,8 +1,31 @@
 import React from 'react'
 
-const Home = ()=> {
-    return (
-        <div className="row justify-content-center">
+import {getFood} from '../api/food'
+
+class Home extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            food: null
+        }
+        this.getFood = this.getFood.bind(this)
+    }
+
+    componentDidMount(){
+        this.getFood()
+    }
+
+    getFood(){
+        getFood()
+        .then(food => {
+            this.setState({food:food})
+        })
+    }
+
+    render(){
+
+        return(
+            <div className="row justify-content-center">
             <ul className="list-unstyled">
                 <li>
                     <h3>Leroy Burger</h3>
@@ -24,7 +47,7 @@ const Home = ()=> {
                 </li>
             </ul>
         </div>
-    )
+        )
+    }
 }
-
 export default Home
