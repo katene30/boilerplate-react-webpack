@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -16,9 +17,9 @@ const Header = () => {
             </div>
             {/* Should change to <Links> */}
             <div className="row">
-                <div className="col"><a href="#"><button type="button" class="btn btn-secondary">Home</button></a></div>
-                <div className="col"><a href="#"><button type="button" class="btn btn-secondary">Ratings</button></a></div>
-                <div className="col"><a href="#"><button type="button" class="btn btn-secondary">Categories</button></a></div>
+                <div className="col"><Link to='/'><button type="button" className="btn btn-secondary">Home</button></Link></div>
+                <div className="col"><a href="#"><button type="button" className="btn btn-secondary">Ratings</button></a></div>
+                <div className="col"><a href="#"><button type="button" className="btn btn-secondary">Categories</button></a></div>
             </div>
         </div>
     )

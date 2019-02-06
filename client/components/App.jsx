@@ -8,11 +8,11 @@ import Header from './Header'
 const App = () => {
   return (
     <div className="container-fluid">
-      <Header />
       <Router>
         <div>
+          <Header />
           <Route exact path = '/' component={Home} />
-        </div>
+          </div>
       </Router>
     </div>
   )
