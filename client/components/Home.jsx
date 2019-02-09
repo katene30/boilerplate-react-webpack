@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import {getFood} from '../api/food'
 
 class Home extends React.Component {
@@ -23,19 +23,21 @@ class Home extends React.Component {
         })
     }
 
-
+c
 
 
     render(){
         return(
             <div className="row justify-content-center">
             <ul className="list-unstyled">
-                {this.state.food.map((food,i) => (<li key={i}>
+                {this.state.food.map((food,i) => (<Link className="link" to={`/food/${food.id}`} key={i} style={{ textDecoration: 'none' }}><li>
                     <h3>{food.name}</h3>
                     <img src={`images/${food.image}`} alt={food.name}/>
                     <p>{food.description}</p>
                     <p><strong>Rate: </strong>{food.rate}</p>
-                </li>))}
+                </li>
+                </Link>
+                ))}
             </ul>
         </div>
         )
