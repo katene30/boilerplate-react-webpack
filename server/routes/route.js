@@ -8,7 +8,6 @@ router.get('/', (req,res)=> {
     db.getFood()
     .then(food => {
         return res.json(food)
-
     })
 })
 

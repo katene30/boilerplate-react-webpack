@@ -23,7 +23,7 @@ class Home extends React.Component {
         })
     }
 
-c
+
 
 
     render(){

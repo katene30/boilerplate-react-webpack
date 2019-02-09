@@ -20,6 +20,7 @@ const Header = () => {
                 <div className="col"><Link to='/'><button type="button" className="btn btn-secondary">Home</button></Link></div>
                 <div className="col"><a href="#"><button type="button" className="btn btn-secondary">Ratings</button></a></div>
                 <div className="col"><a href="#"><button type="button" className="btn btn-secondary">Categories</button></a></div>
+                
             </div>
         </div>
     )
