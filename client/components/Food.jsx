@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {getSingleFood} from '../api/food'
 
 class Food extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            singleFood: null
+            singleFood: []
         }
         this.getSingleFood = this.getSingleFood.bind(this)
     }
@@ -19,13 +18,34 @@ class Food extends React.Component {
         var id = this.props.match.params.id
         getSingleFood(id)
         .then(food => {
-            this.setState({singleFood:food})
+            this.setState({singleFood:food[0]})
         })
     }
 
     render() {
+        var food = this.state.singleFood
         return(
-            <div>Sup eh</div>
+            <div className="container align-self-center food-view">
+                <div className="row">
+                    <div className="col-6"><img src={`images/${food.image}`} alt={food.name}/></div>
+                    <div className="col-6">
+                        <div>
+                            <h3>{food.name} from {food.shopName}</h3>
+                        </div>
+                        <div>
+                            <p>{food.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-6">
+                        <h3>Current Rating: {food.rate}</h3>
+                    </div>
+                    <div className="col-6">
+                        <h3>${food.price}</h3>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
