@@ -6,3 +6,10 @@ export function getFood(){
         return res.body
     })
 }
+
+export function getSingleFood(id){
+    return request.get(`/api/food/${id}`)
+    .then(res => {
+        return res.body
+    })
+}

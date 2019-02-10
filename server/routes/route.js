@@ -11,5 +11,12 @@ router.get('/', (req,res)=> {
     })
 })
 
+router.get('/food/:id', (req,res) => {
+    var id = req.params.id
+    db.getSingleFood(id)
+    .then(food => {
+        return res.json(food)
+    })
+})
 
 module.exports = router

@@ -4,9 +4,14 @@ const config = require('../../knexfile').development
 const db = knex(config)
 
 module.exports = {
-    getFood
+    getFood,
+    getSingleFood
 }
 
 function getFood () {
     return db('food').select()
   }
+
+function getSingleFood(id) {
+    return db('food').where('id',id).select()
+}
