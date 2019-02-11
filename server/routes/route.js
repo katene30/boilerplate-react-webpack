@@ -19,4 +19,12 @@ router.get('/food/:id', (req,res) => {
     })
 })
 
+router.get('/categories/:category', (req,res) => {
+    var category = req.params.category
+    db.getFoodCat(category)
+    .then(food =>{
+        return res.json(food)
+    })
+})
+
 module.exports = router

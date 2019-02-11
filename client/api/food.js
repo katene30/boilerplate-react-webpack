@@ -13,3 +13,10 @@ export function getSingleFood(id){
         return res.body
     })
 }
+
+export function getFoodCat(category){
+    return request.get(`/api/categories/${category}`)
+    .then(res => {
+        return res.body
+    })
+}

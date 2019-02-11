@@ -5,7 +5,8 @@ const db = knex(config)
 
 module.exports = {
     getFood,
-    getSingleFood
+    getSingleFood,
+    getFoodCat
 }
 
 function getFood () {
@@ -14,4 +15,8 @@ function getFood () {
 
 function getSingleFood(id) {
     return db('food').where('id',id).select()
+}
+
+function getFoodCat(category) {
+    return db('food').where('category', category).select()
 }
