@@ -53,6 +53,7 @@ class RatingForm extends React.Component {
         <React.Fragment>
             {this.state.changeRate && 
                         <form onSubmit={e => e.preventDefault()}>
+                        <h3>rate:</h3>
                         <input type="radio" name="rate" value="1" onChange={this.handleChange}/> 1
                         <input type="radio" name="rate" value="2" onChange={this.handleChange}/> 2
                         <input type="radio" name="rate" value="3" onChange={this.handleChange}/> 3
