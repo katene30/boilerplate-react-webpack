@@ -20,3 +20,17 @@ export function getFoodCat(category){
         return res.body
     })
 }
+
+export function addRating(rating, foodId){
+    return request.get(`/api/rating/${foodId}/${rating}`)
+    .then(res => {
+        return res.body
+    })
+}
+
+export function averageRating(foodId){
+    return request.get(`/api/averageRating/${foodId}`)
+    .then(res => {
+        return res.body
+    })
+}

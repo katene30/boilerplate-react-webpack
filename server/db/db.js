@@ -6,7 +6,8 @@ const db = knex(config)
 module.exports = {
     getFood,
     getSingleFood,
-    getFoodCat
+    getFoodCat,
+    addRating
 }
 
 function getFood () {
@@ -19,4 +20,13 @@ function getSingleFood(id) {
 
 function getFoodCat(category) {
     return db('food').where('category', category).select()
+}
+
+function addRating(rating, foodId) {
+    var newRating = {
+        foodId:foodId,
+        rate:rating
+    };
+    return db('ratings')
+    .insert(newRating)
 }

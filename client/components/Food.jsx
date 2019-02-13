@@ -1,5 +1,6 @@
 import React from 'react'
 import {getSingleFood} from '../api/food'
+import RatingForm from './RatingForm'
 
 class Food extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class Food extends React.Component {
             <div className="container align-self-center food-view">
                 <div className="row">
                     <div className="col-6"><img src={`images/${food.image}`} alt={food.name}/></div>
+                    <RatingForm food={this.state.singleFood}/>
                     <div className="col-6">
                         <div>
                             <h3>{food.name} from {food.shopName}</h3>

@@ -27,4 +27,18 @@ router.get('/categories/:category', (req,res) => {
     })
 })
 
+router.get('/rating/:foodId/:rating', (req, res) => {
+    var rating = req.params.rating
+    var foodId = req.params.foodId
+
+    db.addRating(rating, foodId)
+    .then(rate =>{
+        return res.json(rate)
+    })
+})
+
+router.get('/averageRating/:foodId', (req,res) => {
+    var
+})
+
 module.exports = router
