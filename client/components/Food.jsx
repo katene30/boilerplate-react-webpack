@@ -25,6 +25,7 @@ class Food extends React.Component {
     }
 
     getStates(){
+        console.log('hit')
         this.getSingleFood()
     }
 
