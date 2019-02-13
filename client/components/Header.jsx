@@ -15,7 +15,6 @@ const Header = () => {
                     </em>
                 </h3>
             </div>
-            {/* Should change to <Links> */}
             <div className="row">
                 <div className="col"><Link to='/'><button type="button" className="btn btn-secondary">Home</button></Link></div>
                 <div className="col"><Link to='/ratings'><button type="button" className="btn btn-secondary">Ratings</button></Link></div>
