@@ -17,6 +17,7 @@ class RatingForm extends React.Component {
         this.changeRating = this.changeRating.bind(this)
     }
 
+
     handleChange(event){
         this.setState({rate:event.target.value})
     }

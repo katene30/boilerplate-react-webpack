@@ -18,7 +18,7 @@ const Header = () => {
             {/* Should change to <Links> */}
             <div className="row">
                 <div className="col"><Link to='/'><button type="button" className="btn btn-secondary">Home</button></Link></div>
-                <div className="col"><a href="#"><button type="button" className="btn btn-secondary">Ratings</button></a></div>
+                <div className="col"><Link to='/ratings'><button type="button" className="btn btn-secondary">Ratings</button></Link></div>
                 <div className="col"><Link to='/categories'><button type="button" className="btn btn-secondary">Categories</button></Link></div>
                 
             </div>
