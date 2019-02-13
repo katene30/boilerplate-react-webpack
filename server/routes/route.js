@@ -46,4 +46,14 @@ router.get('/averageRating/:foodId', (req,res) => {
     })
 })
 
+router.get('/changeRating/:foodId/:newRate', (req,res) => {
+    var newRate = req.params.newRate
+    var foodId = req.params.foodId
+    db.changeRating(foodId,newRate)
+    .then((newFood)=>{
+        return res.json(newFood)
+    }
+    )
+})
+
 module.exports = router

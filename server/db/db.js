@@ -8,7 +8,8 @@ module.exports = {
     getSingleFood,
     getFoodCat,
     addRating,
-    averageRating
+    averageRating,
+    changeRating
 }
 
 function getFood () {
@@ -40,10 +41,14 @@ function averageRating(foodId) {
         rateArr.map(rate => {
             ratingsArr.push(rate.rate)
         })
-        
+
         var sum = ratingsArr.reduce((acc,i) => {return acc + i}, 0)
         var average = sum/ratingsArr.length
         var roundedAve = Number(average.toFixed(1))
         return roundedAve
     })
+}
+
+function changeRating(foodId,newRate) {
+    return db('food').where('id',foodId).update({rate:newRate})
 }

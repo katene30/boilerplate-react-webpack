@@ -9,6 +9,7 @@ class Food extends React.Component {
             singleFood: []
         }
         this.getSingleFood = this.getSingleFood.bind(this)
+        this.getStates = this.getStates.bind(this)
     }
 
     componentDidMount(){
@@ -23,13 +24,17 @@ class Food extends React.Component {
         })
     }
 
+    getStates(){
+        this.getSingleFood()
+    }
+
     render() {
         var food = this.state.singleFood
         return(
             <div className="container align-self-center food-view">
                 <div className="row">
                     <div className="col-6"><img src={`images/${food.image}`} alt={food.name}/></div>
-                    <RatingForm food={this.state.singleFood}/>
+                    <RatingForm food={this.state.singleFood} sendStates={this.getStates}/>
                     <div className="col-6">
                         <div>
                             <h3>{food.name} from {food.shopName}</h3>

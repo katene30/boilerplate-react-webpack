@@ -1,30 +1,40 @@
 import React from 'react'
 import {addRating} from '../api/food'
 import {averageRating} from '../api/food'
+import {changeRating} from '../api/food'
 
 class RatingForm extends React.Component {
     constructor(props){
         super(props)
         this.state={
             rate: null,
-            changeRate: true
+            changeRate: true,
+            newRate: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.addRating = this.addRating.bind(this)
         this.averageRating = this.averageRating.bind(this)
+        this.changeRating = this.changeRating.bind(this)
     }
+
     handleChange(event){
         this.setState({rate:event.target.value})
     }
-    changeRating(){
-        //do stuff
+
+    changeRating(newRate){
+        var foodId = this.props.food.id
+        changeRating(foodId,newRate)
+        .then(
+            this.props.sendStates(this.state.newRate)
+        )
     }
+
     averageRating(){
         var foodId = this.props.food.id
         averageRating(foodId)
         .then(newRate => {
-            console.log('your new rate is: ',newRate)
-            
+            this.setState({newRate:newRate})
+            this.changeRating(newRate)
         }
         )
     }

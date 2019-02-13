@@ -34,3 +34,10 @@ export function averageRating(foodId){
         return res.body
     })
 }
+
+export function changeRating(foodId,newRate){
+    return request.get(`/api/changeRating/${foodId}/${newRate}`)
+    .then(res => {
+        return res.body
+    })
+}
