@@ -7,7 +7,8 @@ module.exports = {
     getFood,
     getSingleFood,
     getFoodCat,
-    addRating
+    addRating,
+    averageRating
 }
 
 function getFood () {
@@ -29,4 +30,20 @@ function addRating(rating, foodId) {
     };
     return db('ratings')
     .insert(newRating)
+}
+
+function averageRating(foodId) {
+    return db('ratings').where('foodId',foodId).select('rate')
+    .then(rateArr => {
+        var ratingsArr = []
+
+        rateArr.map(rate => {
+            ratingsArr.push(rate.rate)
+        })
+        
+        var sum = ratingsArr.reduce((acc,i) => {return acc + i}, 0)
+        var average = sum/ratingsArr.length
+        var roundedAve = Number(average.toFixed(1))
+        return roundedAve
+    })
 }

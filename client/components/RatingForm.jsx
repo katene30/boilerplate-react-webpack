@@ -22,8 +22,10 @@ class RatingForm extends React.Component {
     averageRating(){
         var foodId = this.props.food.id
         averageRating(foodId)
-        .then(
-            this.changeRating()
+        .then(newRate => {
+            console.log('your new rate is: ',newRate)
+            
+        }
         )
     }
     addRating(){
