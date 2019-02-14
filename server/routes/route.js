@@ -56,4 +56,11 @@ router.get('/changeRating/:foodId/:newRate', (req,res) => {
     )
 })
 
+router.get('/sortedFood', (req,res)=> {
+    db.getSortedFood()
+    .then(food => {
+        return res.json(food)
+    })
+})
+
 module.exports = router

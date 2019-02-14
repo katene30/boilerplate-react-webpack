@@ -9,7 +9,8 @@ module.exports = {
     getFoodCat,
     addRating,
     averageRating,
-    changeRating
+    changeRating,
+    getSortedFood
 }
 
 function getFood () {
@@ -51,4 +52,12 @@ function averageRating(foodId) {
 
 function changeRating(foodId,newRate) {
     return db('food').where('id',foodId).update({rate:newRate})
+}
+
+function getSortedFood(){
+    return db('food').select()
+    .then(food => {
+        var sortedFood = food.sort((a, b) => (a.rate < b.rate) ? 1 : -1)
+        return sortedFood
+    })
 }

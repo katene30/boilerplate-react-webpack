@@ -41,3 +41,11 @@ export function changeRating(foodId,newRate){
         return res.body
     })
 }
+
+export function getSortedFood(){
+
+    return request.get(`/api/sortedFood`)
+    .then(res => {
+        return res.body
+    })
+}
